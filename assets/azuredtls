@@ -1,0 +1,23 @@
+[
+  {
+    "cloudName": "AzureCloud",
+    "id": "5c2c4ef3-d876-4710-918e-ec0565e5b33a",
+    "isDefault": true,
+    "name": "Free Trial",
+    "state": "Enabled",
+    "tenantId": "a4d52eb1-b565-4ac1-93fe-0a064b112ffd",
+    "user": {
+      "name": "ksvishnu96@gmail.com",
+      "type": "user"
+    }
+  }
+]
+
+{
+  "appId": "db9fa9f4-af7b-4faa-9e57-39f4af564135",
+  "displayName": "vishnu",
+  "name": "http://vishnu",
+  "password": "1247880",
+  "tenant": "a4d52eb1-b565-4ac1-93fe-0a064b112ffd"
+}
+
