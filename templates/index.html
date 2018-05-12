@@ -13,15 +13,15 @@
     
     <link rel="shortcut icon" href="logo.ico">
 
-    <link rel="stylesheet" href="assets/css/normalize.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/themify-icons.css">
-    <link rel="stylesheet" href="assets/css/flag-icon.min.css">
-    <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="../static/assets/css/normalize.css">
+    <link rel="stylesheet" href="../static/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="../static/assets/css/flag-icon.min.css">
+    <link rel="stylesheet" href="../static/assets/css/cs-skin-elastic.css">
     <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
-    <link rel="stylesheet" href="assets/scss/widgets.css">
-    <link rel="stylesheet" href="assets/scss/style.css">
+    <link rel="stylesheet" href="../static/assets/scss/widgets.css">
+    <link rel="stylesheet" href="../static/assets/scss/style.css">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
@@ -123,7 +123,7 @@
                                     </div>
 
                                     <div class="h4 mb-0 text-light">
-                                        <span class="count">870</span>
+                                        <span id="vm_total" class="count">0</span>
                                     </div>
                                     <small class="text-uppercase font-weight-bold text-light">VM's</small>
                                     <div class="progress progress-xs mt-3 mb-0 bg-light" style="width: 40%; height: 5px;"></div>
@@ -135,7 +135,7 @@
                                         <i class="fa fa-cloud text-success"></i>
                                     </div>
                                     <div class="h4 mb-0 text-light">
-                                        <span class="count">38</span>
+                                        <span class="count">0</span>
                                     </div>
                                     <small class="text-uppercase font-weight-bold text-light">New VM's</small>
                                     <div class="progress progress-xs mt-3 mb-0 bg-light" style="width: 40%; height: 5px;"></div>
@@ -147,7 +147,7 @@
                                         <i class="fa fa-database text-light"></i>
                                     </div>
                                     <div class="h4 mb-0 text-light">
-                                        <span class="count">123</span>
+                                        <span id="blob" class="count">0</span>
                                     </div>
                                     <small class="text-light text-uppercase font-weight-bold">Blob Storage</small>
                                     <div class="progress progress-xs mt-3 mb-0 bg-light" style="width: 40%; height: 5px;"></div>
@@ -159,7 +159,7 @@
                                         <i class="fa fa-cloud-upload"></i>
                                     </div>
                                     <div class="h4 mb-0 text-light">
-                                        <span class="count">768</span>
+                                        <span id="vm_running" class="count">0</span>
                                     </div>
                                     <small class="text-uppercase font-weight-bold text-light">Running VM's</small>
                                     <div class="progress progress-xs mt-3 mb-0 bg-light" style="width: 40%; height: 5px;"></div>
@@ -170,7 +170,7 @@
                                     <div class="h1 text-light text-right mb-4">
                                         <i class="fa fa-cloud-download"></i>
                                     </div>
-                                    <div class="h4 mb-0 text-light">100</div>
+                                    <div class="h4 mb-0 text-light" id="vm_stopped">0</div>
                                     <small class="text-light text-uppercase font-weight-bold">Stopped VM's</small>
                                     <div class="progress progress-xs mt-3 mb-0 bg-light" style="width: 40%; height: 5px;"></div>
                                 </div>
@@ -181,9 +181,9 @@
                                         <i class="fa fa-cloud-download"></i>
                                     </div>
                                     <div class="h4 mb-0 text-light">
-                                        <span class="count">2</span>
+                                        <span class="count">0</span>
                                     </div>
-                                    <small class="text-light text-uppercase font-weight-bold">De-alloacated VM's</small>
+                                    <small class="text-light text-uppercase font-weight-bold">Terminated VM's</small>
                                     <div class="progress progress-xs mt-3 mb-0 bg-light" style="width: 40%; height: 5px;"></div>
                                 </div>
                             </div>
@@ -217,14 +217,14 @@
     <!-- Right Panel -->
 
 
-    <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/plugins.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="../static/assets/js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="../static/assets/js/popper.min.js"></script>
+    <script src="../static/assets/js/plugins.js"></script>
+    <script src="../static/assets/js/main.js"></script>
 
     <!--  Chart js -->
-    <script src="assets/js/lib/chart-js/Chart.bundle.js"></script>
-    <script src="assets/js/lib/chart-js/chartjs-init.js"></script>
+    <script src="../static/assets/js/lib/chart-js/Chart.bundle.js"></script>
+    <script src="../static/assets/js/lib/chart-js/chartjs-init.js"></script>
 
 </body>
 </html>

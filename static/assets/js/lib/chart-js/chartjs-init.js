@@ -1,3 +1,32 @@
+var running_vm
+var stopped_vm
+var total_vms
+var storage_count
+jQuery(document).ready(function(){
+   jQuery.ajax({
+       method: "GET",
+       url: "/vms",
+     success: function( vms ) {
+	running_vm = vms.vm_running;
+        stopped_vm = vms.vm_stopped;
+        total_vms = running_vm + stopped_vm;
+      jQuery('#vm_running').text(running_vm);
+      jQuery('#vm_stopped').text(stopped_vm);
+      jQuery('#vm_total').text(total_vms);
+    } });
+   jQuery.ajax({
+       method: "GET",
+       url: "/storage",
+     success: function( storage ) {
+        storage_count = storage.number;
+      jQuery('#blob').text(storage_count);
+    }
+ });
+});
+	
+
+
+
 ( function ( $ ) {
     "use strict";   
 
