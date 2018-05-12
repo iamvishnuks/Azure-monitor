@@ -42,4 +42,14 @@ for rg in rgs:
     vm_statuses.append({'name':vm.name,'status':status})
 
 
+count_run=0
+count_stop=0
+
+for vm in vm_statuses:
+  if vm['status'] == 'running':
+     count_run = count_run + 1
+  if vm['status'] == 'deallocated':
+     count_stop = count_stop + 1
+
+
 
