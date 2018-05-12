@@ -18,16 +18,28 @@ def get_credentials():
         secret=os.environ['AZURE_CLIENT_SECRET'],
         tenant=os.environ['AZURE_TENANT_ID']
     )
-    return credentials, subscription_id'
+    return credentials, subscription_id
 
 
 credentials, subscription_id = get_credentials()
 resource_client = ResourceManagementClient(credentials, subscription_id)
 compute_client = ComputeManagementClient(credentials, subscription_id)
 network_client = NetworkManagementClient(credentials, subscription_id)
+allvms=[]
+rgs = []
+for rg in resource_client.resource_groups.list():
+  rgs.append(rg.name)
 
-for i in compute_client.virtual_machines.list_all(expand = 'instanceview'):
-  i.serialize()
+for i in compute_client.virtual_machines.list_all():
+  allvms.append(i.name)
 
-vm = compute_client.virtual_machines.get('r1', 'prod1', expand = 'instanceview')
+vm_statuses = []
+
+for rg in rgs:
+  for i in allvms:
+    vm = compute_client.virtual_machines.get(rg, i, expand = 'instanceview')
+    status = vm.instance_view.statuses[1].code.split('/')[1]
+    vm_statuses.append({'name':vm.name,'status':status})
+
+
 
