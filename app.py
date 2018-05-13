@@ -27,6 +27,22 @@ def get_credentials():
     )
     return credentials, subscription_id
 
+
+def get_resources():
+  rgs = []
+  credentials, subscription_id = get_credentials()
+  resource_client = ResourceManagementClient(credentials, subscription_id)
+  for rg in resource_client.resource_groups.list():
+    rgs.append(rg.name)
+  all_resources = {}
+  for rg in rgs:
+    res = []
+    for item in resource_client.resources.list_by_resource_group(rg):
+      res.append({"name":item.name,"type":item.type,"location":item.location})
+    all_resources[rg] = res
+  return all_resources
+
+
 def get_vm_details():
   credentials, subscription_id = get_credentials()
   resource_client = ResourceManagementClient(credentials, subscription_id)
@@ -72,6 +88,12 @@ def get_storage_info():
 @app.route('/vms')
 def get_vm_statuses():
   return jsonify(get_vm_details())
+
+
+@app.route('/resources')
+def get_resource_dtls():
+  return jsonify(get_resources())
+
   
 @app.route('/')
 @app.route('/index')
