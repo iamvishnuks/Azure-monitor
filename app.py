@@ -13,7 +13,7 @@ from azure.mgmt.network import NetworkManagementClient
 from azure.mgmt.compute import ComputeManagementClient
 from azure.mgmt.compute.models import DiskCreateOption
 from azure.mgmt.storage import StorageManagementClient
-
+from dateutil.parser import parse
 from msrestazure.azure_exceptions import CloudError
 
 LOCATION = 'southindia'
@@ -38,8 +38,34 @@ def get_resources():
   for rg in rgs:
     res = []
     for item in resource_client.resources.list_by_resource_group(rg):
-      res.append({"name":item.name,"type":item.type,"location":item.location})
+      try:
+        res.append({"name":item.name,"type":item.type,"location":item.location,"createdon":item.tags['CreatedOn']})
+      except:
+        res.append({"name": item.name, "type": item.type, "location": item.location})
     all_resources[rg] = res
+  for rg in rgs:
+    less_thirty = 0
+    less_sixty = 0
+    less_ninety = 0
+    greater_ninety = 0
+    for resource in all_resources[rg]:
+      try:
+        createdon = parse(resource['createdon'])
+        now = datetime.now()
+        delta = now - createdon
+        print delta
+      except:
+        delta = timedelta(days=0)
+      if delta.days < 30:
+        less_thirty = less_thirty + 1
+      elif delta.days < 60:
+        less_sixty = less_sixty + 1
+      elif delta.days < 90:
+        less_ninety = less_ninety + 1
+      elif delta.days > 90:
+        greater_ninety = greater_ninety + 1
+    age_list = {'less_thirty':less_thirty, 'less_sixty':less_sixty, 'less_ninety':less_ninety, 'greater_ninety':greater_ninety}
+    all_resources[rg].append(age_list)
   return all_resources
 
 
