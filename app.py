@@ -34,28 +34,28 @@ def get_resources():
   resource_client = ResourceManagementClient(credentials, subscription_id)
   for rg in resource_client.resource_groups.list():
     rgs.append(rg.name)
-  all_resources = {}
+  all_resources = []
   for rg in rgs:
-    res = []
     for item in resource_client.resources.list_by_resource_group(rg):
       try:
-        res.append({"name":item.name,"type":item.type,"location":item.location,"createdon":item.tags['CreatedOn']})
+        all_resources.append({"name":item.name,"type":item.type,"location":item.location,"createdon":item.tags['CreatedOn'],"rg":rg})
       except:
-        res.append({"name": item.name, "type": item.type, "location": item.location})
-    all_resources[rg] = res
-  for rg in rgs:
+        all_resources.append({"name": item.name, "type": item.type, "location": item.location,"rg":rg})
     less_thirty = 0
     less_sixty = 0
     less_ninety = 0
     greater_ninety = 0
-    for resource in all_resources[rg]:
+  for resource in all_resources:
+     #print resource
       try:
         createdon = parse(resource['createdon'])
         now = datetime.now()
         delta = now - createdon
-        print delta
+        resource['age'] = delta.days
+       # print resource
       except:
         delta = timedelta(days=0)
+        resource['age'] = 0
       if delta.days < 30:
         less_thirty = less_thirty + 1
       elif delta.days < 60:
@@ -64,9 +64,9 @@ def get_resources():
         less_ninety = less_ninety + 1
       elif delta.days > 90:
         greater_ninety = greater_ninety + 1
-    age_list = {'less_thirty':less_thirty, 'less_sixty':less_sixty, 'less_ninety':less_ninety, 'greater_ninety':greater_ninety}
-    all_resources[rg].append(age_list)
-  return all_resources
+  age_list = {'less_thirty':less_thirty, 'less_sixty':less_sixty, 'less_ninety':less_ninety, 'greater_ninety':greater_ninety}
+  #all_resources.append(age_list)
+  return {"resources":all_resources,"age":age_list}
 
 
 def get_vm_details():
@@ -88,12 +88,15 @@ def get_vm_details():
       vm_statuses.append({'name':vm.name,'status':status})
   count_run=0
   count_stop=0
+  count_deallocated=0
   for vm in vm_statuses:
     if vm['status'] == 'running':
        count_run = count_run + 1
-    if vm['status'] == 'deallocated':
+    elif vm['status'] == 'deallocated':
+       count_deallocated = count_deallocated + 1
+    elif vm['status'] == 'stopped':
        count_stop = count_stop + 1
-  response = {'vm_running':count_run,'vm_stopped':count_stop,'vm_statuses':vm_statuses}
+  response = {'vm_running':count_run,'vm_stopped':count_stop,'vm_deallocated':count_deallocated,'vm_statuses':vm_statuses}
   return response
 
 def get_storage_details():
