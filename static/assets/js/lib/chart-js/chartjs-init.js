@@ -67,7 +67,23 @@ jQuery(document).ready(function(){
         less_sixty = resources.age.less_sixty;
         less_ninenty = resources.age.less_ninety;
         greater_ninenty = resources.age.greater_ninety;
-      console.log(resources);
+      //console.log(resources.resources.length);
+      for (var i=0; i < resources.resources.length; i++){
+        if (resources.resources[i].age < 30){
+        var ins = "<tr><td>"+resources.resources[i].name+"</td><td>"+resources.resources[i].type+"</td><td>"+resources.resources[i].rg+"</td><td>"+resources.resources[i].age+"</td><td>"+resources.resources[i].location+"</td></tr>";
+        //console.log(ins);
+        jQuery('#less_than_thirty').append(ins);
+        }else if(resources.resources[i].age < 60){
+         var ins = "<tr><td>"+resources.resources[i].name+"</td><td>"+resources.resources[i].type+"</td><td>"+resources.resources[i].rg+"</td><td>"+resources.resources[i].age+"</td><td>"+resources.resources[i].location+"</td></tr>";
+        jQuery('#less_than_sixty').append(ins);
+        }else if(resources.resources[i].age < 90){
+          var ins = "<tr><td>"+resources.resources[i].name+"</td><td>"+resources.resources[i].type+"</td><td>"+resources.resources[i].rg+"</td><td>"+resources.resources[i].age+"</td><td>"+resources.resources[i].location+"</td></tr>";
+        jQuery('#less_than_ninenty').append(ins);
+        }else if(resources.resources[i].age > 90){
+          var ins = "<tr><td>"+resources.resources[i].name+"</td><td>"+resources.resources[i].type+"</td><td>"+resources.resources[i].rg+"</td><td>"+resources.resources[i].age+"</td><td>"+resources.resources[i].location+"</td></tr>";
+        jQuery('#less_than_ninenty').append(ins);
+      }
+     }
       jQuery('#less_thirty').text(less_thirty);
       jQuery('#less_sixty').text(less_sixty);
       jQuery('#less_ninenty').text(less_ninenty);
