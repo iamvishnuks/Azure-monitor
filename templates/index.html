@@ -72,7 +72,7 @@
                     
                     
                     <div class="col-md-6 col-lg-3">
-                        <div class="card bg-flat-color-5 text-light">
+                        <div class="card bg-flat-color-5 text-light" data-toggle="modal" data-target="#lessthirtyModal">
                             <div class="card-body">
                                 <div class="h4 m-0"><span id="less_thirty"></span></div>
                                 <div>Resources less than 30 days</div>
@@ -81,9 +81,8 @@
                             </div>
                         </div>
                     </div><!--/.col-->
-
                     <div class="col-md-6 col-lg-3">
-                        <div class="card bg-flat-color-1 text-light">
+                        <div class="card bg-flat-color-1 text-light" data-toggle="modal" data-target="#lesssixtyModal"">
                             <div class="card-body">
                                 <div class="h4 m-0"><span id="less_sixty"></span></div>
                                 <div>Resources less than 60 days</div>
@@ -94,7 +93,7 @@
                     </div><!--/.col-->
 
                     <div class="col-md-6 col-lg-3">
-                        <div class="card bg-flat-color-3 text-light">
+                        <div class="card bg-flat-color-3 text-light" data-toggle="modal" data-target="#lessninentyModal">
                             <div class="card-body">
                                 <div class="h4 m-0"><span id="less_ninenty"></span></div>
                                 <div>Resources less than 90 days</div>
@@ -105,7 +104,7 @@
                     </div><!--/.col-->
 
                     <div class="col-md-6 col-lg-3">
-                        <div class="card bg-flat-color-4 text-light">
+                        <div class="card bg-flat-color-4 text-light" data-toggle="modal" data-target="#greaterninentyModal">
                             <div class="card-body">
                                 <div class="h4 m-0"><span id="greater_ninenty"></span></div>
                                 <div>Resources greater than 90 days</div>
@@ -209,10 +208,209 @@
             </div><!-- .animated -->
         </div><!-- .content -->
 
+        <div class="modal fade" id="lessthirtyModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="largeModalLabel">Aged resources less than 30 days</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Data Table</strong>
+                        </div>
+                        <div class="card-body">
+                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Resource group</th>
+                        <th>Age</th>
+                          <th>Location</th>
+                      </tr>
+                    </thead>
+                    <tbody id="less_than_thirty">
+                      <tr>
+                        <td>name</td>
+                        <td>type</td>
+                        <td>rg</td>
+                        <td>10</td>
+                          <td>India</td>
+                      </tr>
 
+                    </tbody>
+                  </table>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-primary">Confirm</button>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+        <div class="modal fade" id="lesssixtyModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="largeModalLabel">Aged resources less than 60 days</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Data Table</strong>
+                        </div>
+                        <div class="card-body">
+                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Resource group</th>
+                        <th>Age</th>
+                          <th>Location</th>
+                      </tr>
+                    </thead>
+                    <tbody id="less_than_thirty">
+                      <tr>
+                        <td>name</td>
+                        <td>type</td>
+                        <td>rg</td>
+                        <td>34</td>
+                          <td>India</td>
+                      </tr>
 
+                    </tbody>
+                  </table>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-primary">Confirm</button>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+        <div class="modal fade" id="lessninentyModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="largeModalLabel">Aged resources less than 90 days</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Data Table</strong>
+                        </div>
+                        <div class="card-body">
+                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Resource group</th>
+                        <th>Age</th>
+                          <th>Location</th>
+                      </tr>
+                    </thead>
+                    <tbody id="less_than_ninenty">
+                      <tr>
+                        <td>name</td>
+                        <td>type</td>
+                        <td>rg</td>
+                        <td>67</td>
+                          <td>India</td>
+                      </tr>
 
-    </div><!-- /#right-panel -->
+                    </tbody>
+                  </table>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-primary">Confirm</button>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+
+        <div class="modal fade" id="greaterninentyModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="largeModalLabel">Aged resources less than 30 days</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Data Table</strong>
+                        </div>
+                        <div class="card-body">
+                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Resource group</th>
+                        <th>Age</th>
+                          <th>Location</th>
+                      </tr>
+                    </thead>
+                    <tbody id="greater_than_ninenty">
+                      <tr>
+                        <td>name</td>
+                        <td>type</td>
+                        <td>rg</td>
+                        <td>100</td>
+                          <td>India</td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-primary">Confirm</button>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+    </div>
+               <!-- /#right-panel -->
 
     <!-- Right Panel -->
 
@@ -223,8 +421,10 @@
     <script src="../static/assets/js/main.js"></script>
 
     <!--  Chart js -->
+
     <script src="../static/assets/js/lib/chart-js/Chart.bundle.js"></script>
     <script src="../static/assets/js/lib/chart-js/chartjs-init.js"></script>
+
 
 </body>
 </html>
