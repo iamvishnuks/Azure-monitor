@@ -99,6 +99,7 @@ def get_vm_details():
   response = {'vm_running':count_run,'vm_stopped':count_stop,'vm_deallocated':count_deallocated,'vm_statuses':vm_statuses}
   return response
 
+
 def get_storage_details():
   credentials, subscription_id = get_credentials()
   storage_client = StorageManagementClient(credentials, subscription_id)
@@ -108,6 +109,7 @@ def get_storage_details():
   n = len(storage_accnts)
   response = {'storage_accounts':storage_accnts,'number':n}
   return response
+
 
 @app.route('/storage')
 def get_storage_info():
