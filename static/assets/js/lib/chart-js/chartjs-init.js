@@ -19,6 +19,17 @@ jQuery(document).ready(function(){
       jQuery('#vm_stopped').text(stopped_vm);
       jQuery('#vm_total').text(total_vms);
       jQuery('#vm_deallocated').text(deallocated_vm);
+    for (var i=0; i < vms.vm_statuses.length; i++){
+      var ins = "<tr><td>"+vms.vm_statuses[i].name+"</td><td>"+vms.vm_statuses[i].status+"</td></tr>";
+      jQuery('#total_vms_list').append(ins);
+      if (vms.vm_statuses[i].status =='running'){
+        jQuery('#running_vms_list').append(ins);
+     }else if(vms.vm_statuses[i].status == 'stopped'){
+        jQuery('#stopped_vms_list').append(ins);
+     }else if(vms.vm_statuses[i].status == 'deallocated'){
+        jQuery('#deallocated_vms_list').append(ins);
+     }
+    }
       //doughut chart
     var ctx = document.getElementById( "doughutChart" );
     ctx.height = 150;
@@ -56,6 +67,11 @@ jQuery(document).ready(function(){
        url: "/storage",
      success: function( storage ) {
         storage_count = storage.number;
+      for (var i=0; i < storage.storage_accounts.length; i++){
+      var ins = "<tr><td>"+storage.storage_accounts[i]+"</td></tr>";
+      
+      jQuery('#blobs_list').append(ins);
+     }
       jQuery('#blob').text(storage_count);
     }
  });
