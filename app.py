@@ -18,6 +18,7 @@ from msrestazure.azure_exceptions import CloudError
 
 LOCATION = 'southindia'
 
+
 def get_credentials():
     subscription_id = os.environ['AZURE_SUBSCRIPTION_ID']
     credentials = ServicePrincipalCredentials(
@@ -85,10 +86,10 @@ def get_vm_details():
     for i in allvms:
       vm = compute_client.virtual_machines.get(rg, i, expand = 'instanceview')
       status = vm.instance_view.statuses[1].code.split('/')[1]
-      vm_statuses.append({'name':vm.name,'status':status})
-  count_run=0
-  count_stop=0
-  count_deallocated=0
+      vm_statuses.append({'name': vm.name, 'status': status})
+  count_run = 0
+  count_stop = 0
+  count_deallocated = 0
   for vm in vm_statuses:
     if vm['status'] == 'running':
        count_run = count_run + 1
@@ -96,8 +97,9 @@ def get_vm_details():
        count_deallocated = count_deallocated + 1
     elif vm['status'] == 'stopped':
        count_stop = count_stop + 1
-  response = {'vm_running':count_run,'vm_stopped':count_stop,'vm_deallocated':count_deallocated,'vm_statuses':vm_statuses}
+  response = {'vm_running': count_run, 'vm_stopped': count_stop, 'vm_deallocated': count_deallocated, 'vm_statuses': vm_statuses}
   return response
+
 
 def get_storage_details():
   credentials, subscription_id = get_credentials()
@@ -108,6 +110,7 @@ def get_storage_details():
   n = len(storage_accnts)
   response = {'storage_accounts':storage_accnts,'number':n}
   return response
+
 
 @app.route('/storage')
 def get_storage_info():
